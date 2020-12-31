@@ -1,0 +1,51 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.caicai'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+allprojects {
+    /* 使用二进制插件 */
+    apply plugin: 'java' /* java是Gradle的核心插件，是内置的，内置插件不需要配置依赖路径 */
+    apply plugin: 'idea' /* 同上  让Gradle自动生成Intellij的项目文件*/
+
+    group = 'com.caicai'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '1.8'
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+ext {
+    jacksonVersion = '2.11.2'
+    springFoxVersion = '3.0.0'
+    fastJsonVersion = '1.2.73'
+    redissionVersion = '3.13.4'
+    commonslang3Version = '3.11'
+    springcloudFeignVersion = '2.2.5.RELEASE'
+    springRetryVersion = '1.3.0'
+    jdbcConnectorVersion = '8.0.22'
+    tkmybatisVersion = '2.1.5'
+    druidVersion = '1.2.3'
+
+}
+
+subprojects {
+    /* 注意gradle插件不再自动应用，所以这里需要指定 */
+    apply plugin: 'org.springframework.boot'
+    /* 依赖管理插件仍然是一个spring-boot-gradle-plugin传递依赖，所以无需在build.gradle配置中明确列出此依赖。 */
+    apply plugin: 'io.spring.dependency-management' /* 依赖管理，用来传递spring的依赖 */
+
+    //配置字符编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+}

@@ -4,6 +4,7 @@ package com.caicai.jdkdemo.collection.list;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +47,12 @@ public class ListSplitDemo {
         System.out.println("---");
         blackList1.stream().forEach(System.out::println);
 
+    }
+
+    @Test
+    public void listToString() {
+        List<String> storeIds = Arrays.asList("1234", "4444");
+        System.out.println(storeIds);
+        System.out.println("storeIds = " + storeIds);
     }
 }

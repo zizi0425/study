@@ -4,9 +4,8 @@ plugins {
     id 'java'
 }
 
-group = 'com.caicai'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+
+
 allprojects {
     /* 使用二进制插件 */
     apply plugin: 'java' /* java是Gradle的核心插件，是内置的，内置插件不需要配置依赖路径 */

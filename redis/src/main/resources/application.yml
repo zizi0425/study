@@ -1,0 +1,9 @@
+
+spring:
+  redis:
+    password: U252fnIDyfF1A1
+    host: 115.159.67.166
+    database: 9
+    port: 5289
+  application:
+    name: redis

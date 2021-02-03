@@ -1,2 +1,5 @@
 server:
   port: 10000
+
+test:
+  partnerIds: 1000,10001,10002

@@ -1,3 +1,3 @@
 rootProject.name = 'study'
 
-include 'spring-boot','jdk-demo','log','dynamic-config','redis'
+include 'spring-boot','jdk-demo','log','dynamic-config','redis','retry'

@@ -64,18 +64,18 @@ public class RetrySupport {
         }).start();
     }
 
-    private String execute(RetryEntity retryEntity) {
+    public String execute(RetryEntity retryEntity) {
         return retryTemplate.execute(context -> {
             String url = retryEntity.getUrl();
             Object attribute = context.getAttribute(CUSTOM_ATTR);
             if (attribute == null) {
-                attribute = 1;
+                attribute = 0;
             }
             context.setAttribute(CUSTOM_ATTR, (Integer) attribute + 1);
             String object = restTemplate.postForObject(url, retryEntity.getT(), String.class);
             return object;
         }, context -> {
-//            System.out.println("context.getLastThrowable().getLocalizedMessage() = " + context.getLastThrowable().getLocalizedMessage());
+            System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
             return "重试了三次" + context.getAttribute(CUSTOM_ATTR);});
     }
 

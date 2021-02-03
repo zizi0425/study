@@ -42,10 +42,13 @@ class RetryApplicationTests {
         TimeUnit.SECONDS.sleep(20);
     }
 
+
+    //huididao
+
     @Test
     void retryTest3() throws InterruptedException {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
-                1, 1, 60, TimeUnit.SECONDS,
+                1, 5, 60, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<>(100), new ThreadPoolExecutor.CallerRunsPolicy());
         for (int i = 0; i < 1000; i++) {
             threadPoolExecutor.execute(()->{

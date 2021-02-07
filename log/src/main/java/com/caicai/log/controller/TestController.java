@@ -1,4 +1,4 @@
-package com.caicai.log;
+package com.caicai.log.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

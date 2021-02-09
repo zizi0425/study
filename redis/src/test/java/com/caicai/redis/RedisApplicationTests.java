@@ -23,4 +23,10 @@ class RedisApplicationTests {
     void delField() {
         deliveryService.delField("9687", "123456");
     }
+
+    @Test
+    void tryLock() {
+        deliveryService.tryLock(false);
+        deliveryService.tryLock(true);
+    }
 }

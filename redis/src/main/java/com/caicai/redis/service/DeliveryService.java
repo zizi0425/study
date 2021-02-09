@@ -1,8 +1,12 @@
 package com.caicai.redis.service;
 
 import com.caicai.redis.entity.Delivery;
+import com.caicai.redis.entity.RedisLockEntity;
+import com.caicai.redis.extend.RedisLockExtend;
+import com.caicai.redis.extend.RedisLockHelper;
 import com.caicai.redis.redis.extend.DeliveryRedis;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +23,7 @@ import org.springframework.stereotype.Service;
  * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目
  */
 @Service
+@Slf4j
 public class DeliveryService {
 
     @Autowired
@@ -31,4 +36,19 @@ public class DeliveryService {
     public void delField(String partnerId, String deliveryId) {
         deliveryRedis.delField(partnerId,deliveryId);
     }
+
+    @Autowired
+    RedisLockHelper redisLockHelper;
+
+    public void tryLock(Boolean flag) {
+        redisLockHelper.execute(new RedisLockEntity("study.test.lock"), () -> {
+            if (flag) {
+                throw new RuntimeException("exception ...");
+            } else {
+                log.info("execute");
+            }
+        });
+    }
+
+
 }

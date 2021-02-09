@@ -1,5 +1,9 @@
 package com.caicai.redis.extend;
 
+import lombok.Data;
+
+import java.util.concurrent.TimeUnit;
+
 /**
  * All rights Reserved, Designed By www.freemud.cn
  *

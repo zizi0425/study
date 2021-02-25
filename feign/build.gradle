@@ -1,0 +1,12 @@
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.projectlombok:lombok'
+// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.0.1'
+/*// https://mvnrepository.com/artifact/io.github.openfeign/feign-httpclient
+    implementation group: 'io.github.openfeign', name: 'feign-httpclient', version: '11.0'*/
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

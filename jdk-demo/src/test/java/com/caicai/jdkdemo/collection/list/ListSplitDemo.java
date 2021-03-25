@@ -1,10 +1,12 @@
 package com.caicai.jdkdemo.collection.list;
 
 
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,5 +56,9 @@ public class ListSplitDemo {
         List<String> storeIds = Arrays.asList("1234", "4444");
         System.out.println(storeIds);
         System.out.println("storeIds = " + storeIds);
+        List<Integer> list = Lists.newArrayList(123, 3245, 345);
+        list.stream()
+                .sorted(Integer::compareTo)
+                .forEach(System.out::println);
     }
 }

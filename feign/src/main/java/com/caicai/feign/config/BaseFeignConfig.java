@@ -1,15 +1,19 @@
 package com.caicai.feign.config;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
+import feign.*;
+import feign.codec.Decoder;
+import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.Enumeration;
 import java.util.UUID;
 
@@ -27,6 +31,12 @@ import java.util.UUID;
  */
 @Configuration
 public class BaseFeignConfig {
+
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
+
 
     @Bean
     public RequestInterceptor requestInterceptor() {

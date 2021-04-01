@@ -33,7 +33,7 @@ ext {
     jdbcConnectorVersion = '8.0.22'
     tkmybatisVersion = '2.1.5'
     druidVersion = '1.2.3'
-
+    springStatemachineVersion = '3.0.0'
 }
 
 subprojects {

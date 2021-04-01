@@ -1,19 +1,14 @@
 package com.caicai.feign.config;
 
-import feign.*;
-import feign.codec.Decoder;
-import feign.codec.ErrorDecoder;
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.Enumeration;
 import java.util.UUID;
 
@@ -29,13 +24,8 @@ import java.util.UUID;
  * @Copyright: 2021 www.freemud.cn Inc. All rights reserved.
  * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目
  */
-@Configuration
 public class BaseFeignConfig {
 
-    @Bean
-    Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
 
 
     @Bean

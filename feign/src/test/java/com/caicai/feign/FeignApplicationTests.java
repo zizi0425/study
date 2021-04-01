@@ -1,7 +1,10 @@
 package com.caicai.feign;
 
 import com.caicai.feign.client.HttpStatusTestFeign;
+import com.caicai.feign.client.HttpStatusTestFeign2;
+import com.caicai.feign.client.HttpStatusTestFeign3;
 import com.caicai.feign.client.UserFeign;
+import com.caicai.feign.entity.DemoResponse;
 import com.caicai.feign.entity.PassportResponse;
 import com.caicai.feign.entity.UserResponse;
 import feign.Response;
@@ -19,6 +22,12 @@ class FeignApplicationTests {
     @Autowired
     HttpStatusTestFeign statusTestFeign;
 
+    @Autowired
+    HttpStatusTestFeign2 httpStatusTestFeign2;
+
+    @Autowired
+    HttpStatusTestFeign3 httpStatusTestFeign3;
+
     @Test
     void userTest() {
         PassportResponse<UserResponse> passportResponse = userFeign.getUserByUserCode("S112659886", true);
@@ -35,11 +44,13 @@ class FeignApplicationTests {
 
     @Test
     void httpStatusFeignTest2() {
-        ResponseEntity responseEntity = statusTestFeign.response200();
+        ResponseEntity responseEntity = httpStatusTestFeign2.response200();
         System.out.println("responseEntity = " + responseEntity);
-        Response entity = statusTestFeign.response500_01();
-        System.out.println("entity.getBody() = " + entity.body());
-        System.out.println("entity.getStatusCode() = " + entity.status());
+    }
+    @Test
+    void httpStatusFeignTest3() {
+        DemoResponse<String> responseEntity = httpStatusTestFeign3.response500();
+        System.out.println("responseEntity = " + responseEntity);
     }
 
 }

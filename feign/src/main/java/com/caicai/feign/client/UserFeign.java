@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(
         name = "PASSPORT",
-        url = "http://passport-base-koderover-dev-open-store.api-ingress.sandload.cn",
-        configuration = {BaseFeignConfig.class}
+        url = "http://passport-base-koderover-dev-open-store.api-ingress.sandload.cn"
 )
 public interface UserFeign {
 

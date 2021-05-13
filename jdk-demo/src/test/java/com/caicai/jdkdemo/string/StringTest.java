@@ -5,8 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
+import sun.util.locale.StringTokenIterator;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 /**
  * All rights Reserved, Designed By www.freemud.cn
@@ -46,6 +49,67 @@ public class StringTest {
         String s = objectMapper.writeValueAsString(json);
         System.out.println("StringUtils.hasLength(s) = " + StringUtils.hasLength(s));
         System.out.println("s = " + s);
+    }
+
+
+    @Test
+    public void StringTest() {
+        String url = "abc123def";
+        boolean b = needIntergration(url);
+        System.out.println("b = " + b);
+        System.out.println("url = " + url);
 
     }
+
+
+    @Test
+    public void StringTokenIterator() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 60000; i++) {
+            sb.append(i+"aaa").append(",");
+        }
+        String str = sb.toString();
+        StringTokenizer stringTokenizer = new StringTokenizer(str, ",", false);
+        while (stringTokenizer.hasMoreElements()) {
+            System.out.println("stringTokenizer.nextElement() = " + stringTokenizer.nextElement());
+        }
+
+        String[] split = str.split(",");
+        Arrays.asList(split).forEach(System.out::println);
+
+    }
+
+
+    public static boolean needIntergration(String url) {
+        System.out.println("url = " + url);
+        url = url.replaceFirst("abc", "123");
+        System.out.println("url = " + url);
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

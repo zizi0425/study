@@ -1,5 +1,6 @@
 package com.caicai.jdkdemo.bean;
 
+import com.alibaba.fastjson.JSONObject;
 import com.caicai.entity.Person;
 import org.junit.jupiter.api.Test;
 
@@ -28,4 +29,12 @@ public class IntrospectorTest {
         System.out.println("beanInfo.getMethodDescriptors() = " + beanInfo.getMethodDescriptors());
     }
 
+
+    @Test
+    public void test() {
+        String str = "abc";
+
+        String s = JSONObject.parseObject(str, String.class);
+        System.out.println("s = " + s);
+    }
 }

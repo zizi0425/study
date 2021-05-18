@@ -30,7 +30,7 @@ public class TestConsumer {
 
     @RabbitListener(queues = MQConstant.TestQueue.TEST_QUEUE)
     public void execute(Message testMessage) {
-        System.out.println("testMessage.getHeaders().get(\"abc\") = " + testMessage.getHeaders().get("abc"));
+        System.out.println("testMessage.getHeaders().get(\"abc\") = " + testMessage.getHeaders().get(TID));
         System.out.println("testMessage.getPayload() = " + testMessage.getPayload());
     }
 

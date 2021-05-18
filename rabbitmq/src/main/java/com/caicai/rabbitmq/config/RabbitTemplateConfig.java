@@ -30,5 +30,6 @@ public class RabbitTemplateConfig implements InitializingBean {
             message.getMessageProperties().setHeader(BusinessConstant.TID, "abc");
             return message;
         });
+
     }
 }

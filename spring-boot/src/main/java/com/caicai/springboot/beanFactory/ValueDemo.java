@@ -1,8 +1,6 @@
 package com.caicai.springboot.beanFactory;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.stream.Stream;
@@ -19,7 +17,7 @@ import java.util.stream.Stream;
  * @Copyright: 2021 www.freemud.cn Inc. All rights reserved.
  * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目
  */
-public class BeanFactoryDemo {
+public class ValueDemo {
 
 
     @Value("${custom.service:}")
@@ -45,11 +43,11 @@ public class BeanFactoryDemo {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(BeanFactoryDemo.class);
+        context.register(ValueDemo.class);
 
 
         context.refresh();
-        BeanFactoryDemo bean = context.getBean(BeanFactoryDemo.class);
+        ValueDemo bean = context.getBean(ValueDemo.class);
         Stream.of(bean.allRouteServices()).forEach(System.out::println);
 
         context.close();

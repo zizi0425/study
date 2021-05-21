@@ -20,8 +20,13 @@ import java.util.stream.Stream;
 public class ValueDemo {
 
 
-    @Value("${custom.service:}")
+    @Value("${custom.service:/FREEMUD-DELIVERY-DADA1/**,/FREEMUD-DELIVERY-DADA2/**}")
     String[] customeService;
+
+
+    @Value("${gateWay.isDebugger:true}")
+    private Boolean isDebugger;
+
 
     public String[] allRouteServices() {
         //默认的
@@ -29,7 +34,11 @@ public class ValueDemo {
                 "/FREEMUD-DELIVERY-DADA/**",
                 "/FREEMUD-DELIVERY-SHUNFENG/**",
                 "/FREEMUD-DELIVERY-DINGDING/**",
-                "/FREEMUD-DELIVERY-CANTINGBAO/**"
+                "/FREEMUD-DELIVERY-CANTINGBAO/**",
+                "/freemud-delivery-dada/**",
+                "/freemud-delivery-shunfeng/**",
+                "/freemud-delivery-dingding/**",
+                "/freemud-delivery-cantingbao/**"
         };
         if (customeService == null || customeService.length == 0) {
             return defaultServices;
@@ -49,7 +58,7 @@ public class ValueDemo {
         context.refresh();
         ValueDemo bean = context.getBean(ValueDemo.class);
         Stream.of(bean.allRouteServices()).forEach(System.out::println);
-
+        System.out.println("bean.isDebugger = " + bean.isDebugger);
         context.close();
 
     }

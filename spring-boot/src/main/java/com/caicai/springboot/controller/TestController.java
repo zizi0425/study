@@ -1,6 +1,5 @@
 package com.caicai.springboot.controller;
 
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,6 @@ import java.util.Map;
  * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目
  */
 @RestController
-@AutoConfigureRestDocs
 public class TestController {
 
 

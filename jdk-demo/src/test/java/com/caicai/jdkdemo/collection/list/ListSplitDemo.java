@@ -21,6 +21,8 @@ public class ListSplitDemo {
         list1.add("34");
         list1.add("25");
         list1.add("27");
+
+        System.out.println("list1 = " + list1);
         //白名单
         List<String> list2 = new ArrayList<>();
         list2.add("25");
